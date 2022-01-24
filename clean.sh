@@ -1,0 +1,1 @@
+cargo wipe target -w

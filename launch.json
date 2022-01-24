@@ -1,0 +1,72 @@
+{
+	"relaychain": {
+		"bin": "../polkadot/target/release/polkadot",
+		"chain": "kusama-local",
+		"run": true,
+		"nodes": [
+			{
+				"name": "alice",
+				"wsPort": 9944,
+				"port": 30444,
+				"flags": [
+					"-lsystem=debug",
+					"-lparas=debug",
+					"-lnacho=debug",
+					"-lparachain::candidate-validation=debug",
+					"-lparachain::availability",
+					"-lruntime::inclusion",
+					"-lparachain::collation-generation",
+					"--execution=wasm"
+				]
+			},
+			{
+				"name": "bob",
+				"wsPort": 9955,
+				"port": 30555,
+				"flags": [
+					"--execution=wasm"
+				]
+			}
+		],
+		"genesis": {
+			"runtime": {
+				"configuration": {
+					"config": {
+						"validation_upgrade_frequency": 1,
+						"validation_upgrade_delay": 30
+					}
+				}
+			}
+		}
+	},
+	"parachains": [
+		{
+			"bin": "../cumulus/target/release/polkadot-collator",
+			"chain": "statemine-local",
+			"nodes": [
+				{
+					"wsPort": 9966,
+					"port": 31200,
+					"name": "alice",
+					"flags": [
+						"--",
+						"--execution=wasm"
+					]
+				},
+				{
+					"wsPort": 9977,
+					"port": 31201,
+					"name": "bob",
+					"flags": [
+						"--",
+						"--execution=wasm"
+					]
+				}
+			]
+		}
+	],
+	"simpleParachains": [],
+	"hrmpChannels": [],
+	"types": {},
+	"finalization": false
+}
