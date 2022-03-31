@@ -1,0 +1,106 @@
+{
+	"relaychain": {
+		"bin": "polkadot/target/production/polkadot",
+		"chain": "kusama-local",
+		"run": true,
+		"nodes": [
+			{
+				"name": "alice",
+				"wsPort": 9944,
+				"port": 30444,
+				"flags": [
+					"-lsystem=debug",
+					"-lparas=debug",
+					"-lnacho=debug",
+					"-lparachain::candidate-validation=debug",
+					"-lparachain::availability",
+					"-lruntime::inclusion",
+					"-lparachain::collation-generation",
+					"--execution=wasm"
+				]
+			},
+			{
+				"name": "bob",
+				"wsPort": 9955,
+				"port": 30555,
+				"flags": [
+					"--execution=wasm"
+				]
+			},
+			{
+				"name": "charlie",
+				"wsPort": 9902,
+				"port": 30666,
+				"basePath": "/tmp/relay/charlie"
+			},
+      		{
+				"name": "dave",
+				"wsPort": 9903,
+				"port": 30777,
+				"basePath": "/tmp/relay/dave"
+			}
+		],
+		"genesis": {
+			"runtime": {
+				"configuration": {
+					"config": {
+						"validation_upgrade_frequency": 1,
+						"validation_upgrade_delay": 30
+					}
+				}
+			}
+		}
+	},
+	"parachains": [
+		{
+			"bin": "cumulus/target/production/polkadot-collator",
+			"chain": "statemine-local",
+			"nodes": [
+				{
+					"wsPort": 9966,
+					"port": 31200,
+					"name": "alice",
+					"flags": [
+						"--",
+						"--execution=wasm"
+					]
+				},
+				{
+					"wsPort": 9977,
+					"port": 31201,
+					"name": "bob",
+					"flags": [
+						"--",
+						"--execution=wasm"
+					]
+				}
+			]
+		},
+		{
+			"bin": "/home/gilescope/git/sm10/cub/community-parachain/parachain-template/target/release/parachain-collator",
+      		"chain": "kusama-community-parachain-2000",
+	  		"id":"2000",
+			"nodes": [
+        {
+					"wsPort": 9920,
+					"port": 31202,
+					"name": "alice",
+					"flags": ["--force-authoring", "--", "--execution=wasm"],
+					"basePath": "/tmp/parachains/comunity/alice"
+
+				},
+        {
+					"wsPort": 9921,
+					"port": 31203,
+					"name": "bob",
+					"flags": ["--force-authoring", "--", "--execution=wasm"],
+					"basePath": "/tmp/parachains/comunity/bob"
+				}
+			]
+		}
+	],
+	"simpleParachains": [],
+	"hrmpChannels": [],
+	"types": {},
+	"finalization": false
+}

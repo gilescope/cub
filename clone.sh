@@ -15,3 +15,7 @@ cd ..
 cd Acala
 git submodule update --init --recursive
 cd ..
+git clone https://github.com/NachoPal/parachains-integration-tests
+
+
+git clone https://github.com/NachoPal/community-parachain.git
