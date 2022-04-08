@@ -1,6 +1,6 @@
 {
 	"relaychain": {
-		"bin": "polkadot/target/production/polkadot",
+		"bin": "polkadot/target/release/polkadot",
 		"chain": "polkadot-local",
 		"run": true,
 		"nodes": [
@@ -53,7 +53,7 @@
 	},
 	"parachains": [
 		{
-			"bin": "cumulus/target/production/polkadot-collator",
+			"bin": "cumulus/target/release/polkadot-collator",
 			"chain": "statemint-local",
 			"nodes": [
 				{
@@ -77,7 +77,7 @@
 			]
 		},
 		{
-			"bin": "/home/gilescope/git/sm10/cub/community-parachain/parachain-template/target/release/parachain-collator",
+			"bin": "community-parachain/parachain-template/target/release/parachain-collator",
 			"chain": "polkadot-community-parachain-2000",
 			"id":"2000",
 			"nodes": [

@@ -1,6 +1,6 @@
 {
 	"relaychain": {
-		"bin": "polkadot/target/production/polkadot",
+		"bin": "polkadot/target/release/polkadot",
 		"chain": "kusama-local",
 		"run": true,
 		"nodes": [
@@ -53,7 +53,7 @@
 	},
 	"parachains": [
 		{
-			"bin": "cumulus/target/production/polkadot-collator",
+			"bin": "cumulus/target/release/polkadot-collator",
 			"chain": "statemine-local",
 			"nodes": [
 				{
