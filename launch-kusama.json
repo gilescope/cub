@@ -77,7 +77,7 @@
 			]
 		},
 		{
-			"bin": "/home/gilescope/git/sm10/cub/community-parachain/parachain-template/target/release/parachain-collator",
+			"bin": "community-parachain/parachain-template/target/release/parachain-collator",
       		"chain": "kusama-community-parachain-2000",
 	  		"id":"2000",
 			"nodes": [

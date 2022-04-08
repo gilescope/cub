@@ -3,10 +3,6 @@ cd substrate
 git stash -u
 git checkout master
 git pull
-git branch --set-upstream-to=origin/polkadot-v0.9.18 polkadot-v0.9.18
-git checkout polkadot-v0.9.18
-git reset --hard origin/polkadot-v0.9.18
-git checkout master
 cd ..
 
 # polkadot
@@ -14,13 +10,9 @@ cd polkadot
 git stash -u
 git checkout master
 git pull
-git branch --set-upstream-to=origin/release-v0.9.18 release-v0.9.18
-git checkout release-v0.9.18
-#add in sudo pallet
-
-#git cherry-pick adf3c59f71a52fe316b2fd6560e3aa3bbecc3196
-diener patch --crates-to-patch ../substrate --substrate
+#add in sudo pallet:
 git cherry-pick 755a4b69c94ba75618080c76d25133b11c1d58db
+diener patch --crates-to-patch ../substrate --substrate
 cargo update -p sp-io
 cd ..
 
@@ -29,8 +21,6 @@ cd cumulus
 git stash -u
 git checkout master
 git pull
-git branch --set-upstream-to=origin/release-parachains-v8.0.0 release-parachains-v8.0.0
-git reset --hard origin/release-parachains-v8.0.0
 
 diener patch --crates-to-patch ../substrate --substrate
 diener patch --crates-to-patch ../polkadot --polkadot
@@ -40,6 +30,8 @@ cd ..
 cd comunity-parachain
 git checkout polkadot-v0.9.18-community-parachain
 cd ..
+
+
 #cp Cargo.lock L
 #git checkout Cargo.lock
 #git revert 9388723d8186b84907b5d73937f7a70398309ac2
