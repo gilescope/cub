@@ -1,3 +1,4 @@
 
-cd ~/git/sm8/polkadot && cargo build --profile production --features fast-runtime
-cd ~/git/sm8/cumulus && cargo build --profile production
+cd ./polkadot && cargo build --release --features fast-runtime &
+cd ./cumulus && cargo build --release &
+cd ./community-parachain/parachain-template && cargo build --release
