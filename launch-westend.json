@@ -1,7 +1,7 @@
 {
 	"relaychain": {
 		"bin": "polkadot/target/release/polkadot",
-		"chain": "kusama-local",
+		"chain": "westend-local",
 		"run": true,
 		"nodes": [
 			{
@@ -52,7 +52,7 @@
 	"parachains": [
 		{
 			"bin": "cumulus/target/release/polkadot-collator",
-			"chain": "statemine-local",
+			"chain": "westmint-local",
 			"nodes": [
 				{
 					"wsPort": 9966,
@@ -96,20 +96,7 @@
 		}
 	],
 	"simpleParachains": [],
-	"hrmpChannels": [
-        {
-            "sender": 1000,
-            "recipient": 2000,
-            "maxCapacity": 8,
-            "maxMessageSize": 8192
-        },
-        {
-            "sender": 2000,
-            "recipient": 1000,
-            "maxCapacity": 8,
-            "maxMessageSize": 8192
-        }
-	],
+	"hrmpChannels": [],
 	"types": {},
 	"finalization": false
 }
