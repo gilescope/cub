@@ -31,13 +31,11 @@
 				"name": "charlie",
 				"wsPort": 9902,
 				"port": 30666,
-				"basePath": "/tmp/relay/charlie"
 			},
 			{
 				"name": "dave",
 				"wsPort": 9903,
 				"port": 30777,
-				"basePath": "/tmp/relay/dave"
 			}
 		],
 		"genesis": {
@@ -53,7 +51,7 @@
 	},
 	"parachains": [
 		{
-			"bin": "cumulus/target/release/polkadot-collator",
+			"bin": "cumulus/target/release/polkadot-parachain",
 			"chain": "statemint-local",
 			"nodes": [
 				{

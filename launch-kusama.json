@@ -51,7 +51,7 @@
 	},
 	"parachains": [
 		{
-			"bin": "cumulus/target/release/polkadot-collator",
+			"bin": "cumulus/target/release/polkadot-parachain",
 			"chain": "statemine-local",
 			"nodes": [
 				{
